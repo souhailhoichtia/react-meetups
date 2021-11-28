@@ -1,6 +1,8 @@
 import NewMeetupForm from "../components/meetups/NewMeetupForm";
+import { useNavigate } from "react-router-dom";
 
 function NewMeetupPage() {
+  const navigate = useNavigate();
   function addMeetupHandler(meetupData) {
     // ici send http request
     // // https://meetup-eddaa-default-rtdb.firebaseio.com/
@@ -10,6 +12,8 @@ function NewMeetupPage() {
       headers: {
         "content-type": "applocation/json",
       },
+    }).then(() => {
+      navigate("/");
     });
   }
   return (
